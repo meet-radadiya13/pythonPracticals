@@ -20,6 +20,15 @@ output = ""
 def word_to_num(string):
     """
     Converts a word representing a number to its numerical value.
+
+    Args:
+    string (str): A string representing a number in word form.
+
+    Returns:
+    str: The numerical value of the input string as a string.
+
+    Raises:
+    None
     """
     if string.startswith('zero'):
         return number + '0' + word_to_num((string[4:]))
@@ -50,6 +59,15 @@ def word_to_num(string):
 def num_to_word(num):
     """
     Converts a number to a word representing that number.
+
+    Args:
+    num (str): A string representing a number.
+
+    Returns:
+    str: A string representing the input number in word form.
+
+    Raises:
+    None
     """
     if num == '':
         return ''
@@ -59,8 +77,18 @@ def num_to_word(num):
 def gcd(x, y):
     """
     Computes the GCD of two numbers using recursion.
+
+    Args:
+    x (int): The first integer.
+    y (int): The second integer.
+
+    Returns:
+    int: The GCD of the input integers.
+
+    Raises:
+    None
     """
-    if (y == 0):
+    if y == 0:
         return x
     else:
         return gcd(y, x % y)
