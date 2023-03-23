@@ -74,5 +74,4 @@ try:
     gcd_num = str(gcd(inputnum1, inputnum2))
     print("GCD of given inputs is {}".format(num_to_word(gcd_num)))
 except Exception as e:
-    print(e)
     print("Please check input again.")
