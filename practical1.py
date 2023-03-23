@@ -47,7 +47,7 @@ def word_to_num(string):
     elif string.startswith('seven'):
         return number + '7' + word_to_num((string[5:]))
     elif string.startswith('eight'):
-        return number + '8' + word_to_num((string[8:]))
+        return number + '8' + word_to_num((string[5:]))
     elif string.startswith('nine'):
         return number + '9' + word_to_num((string[4:]))
     elif not string:
