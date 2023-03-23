@@ -29,15 +29,20 @@ def group_anagrams(lst):
 
 
 try:
-    n = int(input("Enter length of the list: "))
-    strs = [str(input("Enter word: ")) for _ in range(n)]
+    list_length = int(input("Enter length of the list: "))
+    strs = [str(input("Enter word: ")) for _ in range(list_length)]
     if 1 <= len(strs) <= 104:
         for i in strs:
             if 0 <= len(i) <= 100:
                 print(list(group_anagrams(strs).values()))
             else:
-                raise Exception
+                raise ValueError
     else:
-        raise Exception
-except Exception as e:
-    print("Please check inputs again.")
+        raise ValueError
+except ValueError as v:
+    print("Please enter a number with length less than 100.")
+except TypeError as t:
+    print("Please enter a number.")
+except IndexError as t:
+    print("Please check the inputs again.")
+

@@ -53,7 +53,7 @@ def word_to_num(string):
     elif not string:
         return ""
     else:
-        return "Please check input again."
+        raise TypeError
 
 
 def num_to_word(num):
@@ -74,13 +74,13 @@ def num_to_word(num):
     return output + digits[num[0]] + num_to_word(num[1:])
 
 
-def gcd(x, y):
+def gcd(number1, number2):
     """
     Computes the GCD of two numbers using recursion.
 
     Args:
-    x (int): The first integer.
-    y (int): The second integer.
+    number1 (int): The first integer.
+    number2 (int): The second integer.
 
     Returns:
     int: The GCD of the input integers.
@@ -88,10 +88,10 @@ def gcd(x, y):
     Raises:
     None
     """
-    if y == 0:
-        return x
+    if number2 == 0:
+        return number2
     else:
-        return gcd(y, x % y)
+        return gcd(number2, number1 % number2)
 
 
 try:
@@ -101,5 +101,9 @@ try:
     inputnum2 = int(word_to_num(inputstr2))
     gcd_num = str(gcd(inputnum1, inputnum2))
     print("GCD of given inputs is {}".format(num_to_word(gcd_num)))
-except Exception as e:
-    print("Please check input again.")
+except ValueError as v:
+    print("Please enter a number.")
+except TypeError as t:
+    print("Please enter a number.")
+except IndexError as t:
+    print("Please check the inputs again.")

@@ -3,7 +3,7 @@
 """
 
 
-def generate_braces(n, memo={}):
+def generate_braces(number, memo={}):
     """
     Generates all possible valid combinations of n pairs of parentheses.
 
@@ -16,22 +16,29 @@ def generate_braces(n, memo={}):
     Raises:
     None
     """
-    if n in memo:
-        return memo[n]
+    if number in memo:
+        return memo[number]
     output = []
-    if n == 0:
+    if number == 0:
         output.append('')
     else:
-        for i in range(n):
+        for i in range(number):
             for left in generate_braces(i, memo):
-                for right in generate_braces(n - i - 1, memo):
+                for right in generate_braces(number - i - 1, memo):
                     output.append('({}){}'.format(left, right))
-    memo[n] = output
+    memo[number] = output
     return output
 
+try:
+    number = int(input("Enter number to generate braces: "))
+    if 1 <= number <= 8:
+        print(generate_braces(number))
+    else:
+        raise ValueError
+except ValueError as v:
+    print("Please enter a number between 1 and 8.")
+except TypeError as t:
+    print("Please enter a number.")
+except IndexError as t:
+    print("Please check the inputs again.")
 
-n = int(input("Enter n: "))
-if 1 <= n <= 8:
-    print(generate_braces(n))
-else:
-    print("Please enter number between 1 and 8")
