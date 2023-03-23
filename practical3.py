@@ -6,6 +6,18 @@ letters exactly once.
 
 
 def group_anagrams(lst):
+    """
+    Groups the words in the given list into sets of anagrams.
+
+    Args:
+    lst (list): A list of words.
+
+    Returns:
+    dict: A dictionary mapping sorted strings of characters to lists of words that are anagrams of each other.
+
+    Raises:
+    None
+    """
     anagrams = {}
     for word in lst:
         sorted_word = ''.join(sorted(word))
