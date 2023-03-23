@@ -16,6 +16,16 @@ def group_anagrams(lst):
     return anagrams
 
 
-n = int(input("Enter length of the list: "))
-strs = [input("Enter word: ") for _ in range(n)]
-print(list(group_anagrams(strs).values()))
+try:
+    n = int(input("Enter length of the list: "))
+    strs = [str(input("Enter word: ")) for _ in range(n)]
+    if 1 <= len(strs) <= 104:
+        for i in strs:
+            if 0 <= len(i) <= 100:
+                print(list(group_anagrams(strs).values()))
+            else:
+                raise Exception
+    else:
+        raise Exception
+except Exception as e:
+    print("Please check inputs again.")
