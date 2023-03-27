@@ -16,7 +16,7 @@ def group_anagrams(lst):
     dict: A dictionary mapping sorted strings of characters to lists of words that are anagrams of each other.
 
     Raises:
-    None
+    IndexError
     """
     anagrams = {}
     for word in lst:
@@ -34,15 +34,16 @@ try:
     if 1 <= len(strs) <= 104:
         for i in strs:
             if 0 <= len(i) <= 100:
-                print(list(group_anagrams(strs).values()))
+                output = list(group_anagrams(strs).values())
             else:
                 raise ValueError
     else:
         raise ValueError
-except ValueError as v:
+    print(output)
+except ValueError as valueError:
     print("Please enter a number with length less than 100.")
-except TypeError as t:
+except TypeError as typeError:
     print("Please enter a number.")
-except IndexError as t:
+except IndexError as indexError:
     print("Please check the inputs again.")
 

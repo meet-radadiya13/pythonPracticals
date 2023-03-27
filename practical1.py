@@ -28,7 +28,7 @@ def word_to_num(string):
     str: The numerical value of the input string as a string.
 
     Raises:
-    None
+    IndexError
     """
     if string.startswith('zero'):
         return number + '0' + word_to_num((string[4:]))
@@ -67,7 +67,7 @@ def num_to_word(num):
     str: A string representing the input number in word form.
 
     Raises:
-    None
+    IndexError
     """
     if num == '':
         return ''
@@ -86,10 +86,10 @@ def gcd(number1, number2):
     int: The GCD of the input integers.
 
     Raises:
-    None
+    TypeError
     """
     if number2 == 0:
-        return number2
+        return number1
     else:
         return gcd(number2, number1 % number2)
 
@@ -101,9 +101,9 @@ try:
     inputnum2 = int(word_to_num(inputstr2))
     gcd_num = str(gcd(inputnum1, inputnum2))
     print("GCD of given inputs is {}".format(num_to_word(gcd_num)))
-except ValueError as v:
+except ValueError as valueError:
     print("Please enter a number.")
-except TypeError as t:
+except TypeError as typeError:
     print("Please enter a number.")
-except IndexError as t:
+except IndexError as indexError:
     print("Please check the inputs again.")

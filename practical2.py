@@ -14,7 +14,7 @@ def generate_braces(number, memo={}):
     list: A list of strings representing all valid combinations of n pairs of parentheses.
 
     Raises:
-    None
+    IndexError
     """
     if number in memo:
         return memo[number]
@@ -35,10 +35,10 @@ try:
         print(generate_braces(number))
     else:
         raise ValueError
-except ValueError as v:
+except ValueError as valueError:
     print("Please enter a number between 1 and 8.")
-except TypeError as t:
+except TypeError as typeError:
     print("Please enter a number.")
-except IndexError as t:
+except IndexError as indexError:
     print("Please check the inputs again.")
 
