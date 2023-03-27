@@ -3,7 +3,7 @@ Given an array of strings strs, group the anagrams together. You can return the 
 a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original
 letters exactly once.
 """
-
+flag = False
 
 def group_anagrams(lst):
     """
@@ -29,21 +29,21 @@ def group_anagrams(lst):
 
 
 try:
-    list_length = int(input("Enter length of the list: "))
-    strs = [str(input("Enter word: ")) for _ in range(list_length)]
-    if 1 <= len(strs) <= 104:
-        for i in strs:
-            if 0 <= len(i) <= 100:
-                output = list(group_anagrams(strs).values())
-            else:
-                raise ValueError
-    else:
-        raise ValueError
-    print(output)
-except ValueError as valueError:
-    print("Please enter a number with length less than 100.")
-except TypeError as typeError:
-    print("Please enter a number.")
-except IndexError as indexError:
+    strs = eval(input("Enter inputs: "))
+    if len(strs) < 1 or len(strs) > 104:
+        raise ValueError("Number of inputs must be between 1 and 104.")
+    for item in strs:
+        if not (0 <= len(item) <= 100 and item.islower()):
+            raise ValueError("Each input must be a lowercase string with length between 1 and 100.")
+    anagrams = group_anagrams(strs)
+    print(list(anagrams.values()))
+except ValueError as valError:
+    print(f"Invalid input: {valError}")
+except TypeError:
+    print("Please enter valid input.")
+except IndexError:
     print("Please check the inputs again.")
+except Exception:
+    print("An error occurred. Please try again.")
+
 

@@ -32,13 +32,16 @@ def generate_braces(number, memo={}):
 try:
     number = int(input("Enter number to generate braces: "))
     if 1 <= number <= 8:
-        print(generate_braces(number))
+        braces = generate_braces(number)
+        print(braces)
     else:
-        raise ValueError
-except ValueError as valueError:
-    print("Please enter a number between 1 and 8.")
-except TypeError as typeError:
-    print("Please enter a number.")
-except IndexError as indexError:
+        raise ValueError("Number must be between 1 and 8.")
+except ValueError as valError:
+    print(f"Invalid input: {valError}")
+except TypeError:
+    print("Please enter a valid number.")
+except IndexError:
     print("Please check the inputs again.")
+except Exception:
+    print("An error occurred. Please try again.")
 
