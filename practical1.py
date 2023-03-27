@@ -96,10 +96,10 @@ def gcd(number1, number2):
 
 try:
     inputstr1 = input("Please enter input 1: ")
-    inputnum1 = word_to_num(inputstr1)
+    inputnum1 = int(word_to_num(inputstr1))
     inputstr2 = input("Please enter input 2: ")
-    inputnum2 = word_to_num(inputstr2)
-    gcd_num = gcd(inputnum1, inputnum2)
+    inputnum2 = int(word_to_num(inputstr2))
+    gcd_num = str(gcd(inputnum1, inputnum2))
     print(f"GCD of {inputstr1} and {inputstr2} is {num_to_word(gcd_num)}")
 except ValueError:
     print("Please enter a valid number word.")
